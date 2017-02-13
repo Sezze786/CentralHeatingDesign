@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Central Heating Design</string>
+
+    <string name="home_page_title">Home Page</string>
+    <string name="home_page_description">Description of App</string>
+    <string name="begin_button">Begin</string>
+
+</resources>
