@@ -10,6 +10,7 @@
     <string name="begin_button">Begin</string>
     <string name="back_button">Back</string>
     <string name="next_button">Next</string>
+    <string name="edit_room_button">Edit Room</string>
 
 
     <string name="how_many_floors_prompt">Pick How Many Floors?</string>
