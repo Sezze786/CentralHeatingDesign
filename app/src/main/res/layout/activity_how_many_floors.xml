@@ -25,7 +25,9 @@
             android:id="@+id/howManyFloorsTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/activity_how_many_floors_title" />
+            android:text="@string/activity_how_many_floors_title"
+            android:textSize="18sp"
+            android:textAlignment="center" />
 
         <Spinner
             android:id="@+id/howManyFloorsSpinner"
@@ -34,7 +36,8 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:entries="@array/floors_arrays"
-            android:prompt="@string/how_many_floors_prompt" />
+            android:prompt="@string/how_many_floors_prompt"
+            android:paddingBottom="15dp" />
 
     </LinearLayout>
 

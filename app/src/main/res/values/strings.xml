@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Central Heating Design</string>
 
-    <string name="main_activity_title">Home Page</string>
+    <string name="activity_main_title">Home Page</string>
     <string name="activity_how_many_floors_title">How Many Floors?</string>
     <string name="activity_overview_title">Overview</string>
 
