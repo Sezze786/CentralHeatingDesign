@@ -15,7 +15,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HowManyFloorsActivity"></activity>
+        <activity android:name=".HowManyFloorsActivity" />
+        <activity android:name=".OverviewActivity"></activity>
     </application>
 
 </manifest>

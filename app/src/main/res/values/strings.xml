@@ -2,10 +2,16 @@
     <string name="app_name">Central Heating Design</string>
 
     <string name="main_activity_title">Home Page</string>
-    <string name="main_activity_description">Description of App</string>
-    <string name="begin_button">Begin</string>
-
     <string name="activity_how_many_floors_title">How Many Floors?</string>
+    <string name="activity_overview_title">Overview</string>
+
+    <string name="main_activity_description">Description of App</string>
+
+    <string name="begin_button">Begin</string>
+    <string name="back_button">Back</string>
+    <string name="next_button">Next</string>
+
+
     <string name="how_many_floors_prompt">Pick How Many Floors?</string>
     <string-array name="floors_arrays">
         <item>1</item>
@@ -13,8 +19,6 @@
         <item>3</item>
         <item>4</item>
     </string-array>
-    <string name="back_button">Back</string>
-
 
 
 </resources>
