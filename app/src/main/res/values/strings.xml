@@ -12,7 +12,6 @@
     <string name="next_button">Next</string>
     <string name="edit_room_button">Edit Room</string>
 
-
     <string name="how_many_floors_prompt">Pick How Many Floors?</string>
     <string-array name="floors_arrays">
         <item>1</item>
@@ -20,6 +19,12 @@
         <item>3</item>
         <item>4</item>
     </string-array>
+
+    <string name="expand_me">Slide Up To Expand</string>
+    <string name="boiler">Boiler</string>
+    <string name="radiator">Radiator</string>
+
+
 
 
 </resources>
