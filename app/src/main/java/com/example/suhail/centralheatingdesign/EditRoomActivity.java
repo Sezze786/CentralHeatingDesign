@@ -18,6 +18,8 @@ public class EditRoomActivity extends AppCompatActivity {
     private int _xDelta;
     private int _yDelta;
     private LinearLayout boilerButton;
+    private LinearLayout radiatorButton;
+    private LinearLayout horizontalLineButton;
     private RelativeLayout editRoomRelativeLayout;
 
 
@@ -44,6 +46,35 @@ public class EditRoomActivity extends AppCompatActivity {
                 i.setOnTouchListener(new ChoiceTouchListener());
             } // onClick
         });
+
+        // Click on radiator field
+        radiatorButton = (LinearLayout) findViewById(R.id.radiatorField);
+        radiatorButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ImageView i = new ImageView(EditRoomActivity.this);
+                i.setImageResource(R.drawable.radiator);
+                i.setLayoutParams(new LinearLayout.LayoutParams(150, 150));
+                // Add this image to the relative layout
+                editRoomRelativeLayout.addView(i);
+                i.setOnTouchListener(new ChoiceTouchListener());
+            } // onClick
+        });
+
+        // Click on horizontal line field
+        horizontalLineButton = (LinearLayout) findViewById(R.id.horizontalLineField);
+        horizontalLineButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ImageView i = new ImageView(EditRoomActivity.this);
+                i.setImageResource(R.drawable.horizontal_line);
+                i.setLayoutParams(new LinearLayout.LayoutParams(150, 150));
+                // Add this image to the relative layout
+                editRoomRelativeLayout.addView(i);
+                i.setOnTouchListener(new ChoiceTouchListener());
+            } // onClick
+        });
+
 
         rootLayout = (ViewGroup) findViewById(R.id.activity_edit_room);
         img = (ImageView) rootLayout.findViewById(R.id.imageView);
@@ -78,10 +109,15 @@ public class EditRoomActivity extends AppCompatActivity {
                             .getLayoutParams();
                     layoutParams.leftMargin = X - _xDelta;
                     layoutParams.topMargin = Y - _yDelta;
-//                    lParams.rightMargin = -250;
-//                    lParams.bottomMargin = -250;
+                    // Set boundary for top margin
                     if(lParams.topMargin < 0) {
-                        lParams.topMargin=0;
+                        lParams.topMargin = 0;
+                        view.setLayoutParams(layoutParams);
+                        return true;
+                    }
+                    // Set boundary for left margin
+                    else if(lParams.leftMargin < 0) {
+                        lParams.leftMargin = 0;
                         view.setLayoutParams(layoutParams);
                         return true;
                     }
