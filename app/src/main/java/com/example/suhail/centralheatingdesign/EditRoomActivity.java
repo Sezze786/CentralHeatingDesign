@@ -11,17 +11,27 @@ import android.view.View.OnTouchListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.view.ScaleGestureDetector;
 
 
 public class EditRoomActivity extends AppCompatActivity {
     private ImageView img;
     private ViewGroup rootLayout;
+
     private int _xDelta;
     private int _yDelta;
+
+    int numberOfBoilers = 0;
+    int numberOfRadiators = 0;
+
     private LinearLayout boilerButton;
     private LinearLayout radiatorButton;
     private LinearLayout horizontalLineButton;
+    private LinearLayout verticalLineButton;
     private RelativeLayout editRoomRelativeLayout;
+
+    ImageView circleImage;
+    private ScaleGestureDetector scaleGestureDetector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +41,9 @@ public class EditRoomActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_room);
 
-
         editRoomRelativeLayout = (RelativeLayout) findViewById(R.id.editRoomRelativeLayout);
+        circleImage = (ImageView) findViewById(R.id.imageView);
+//        scaleGestureDetector = new ScaleGestureDetector(this, new MySimpleOnScaleGestureListener(myImage));
 
         // Click on boiler field
         boilerButton = (LinearLayout) findViewById(R.id.boilerField);
@@ -45,6 +56,10 @@ public class EditRoomActivity extends AppCompatActivity {
                 // Add this image to the relative border
                 editRoomRelativeLayout.addView(i);
                 i.setOnTouchListener(new ChoiceTouchListener());
+                // Make this image scalable
+                scaleGestureDetector =  new ScaleGestureDetector(getApplicationContext(),new MySimpleOnScaleGestureListener(i));
+                numberOfBoilers ++;
+                ConstraintChecker(numberOfBoilers,numberOfRadiators);
             } // onClick
         });
 
@@ -59,6 +74,10 @@ public class EditRoomActivity extends AppCompatActivity {
                 // Add this image to the relative border
                 editRoomRelativeLayout.addView(i);
                 i.setOnTouchListener(new ChoiceTouchListener());
+                // Make this image scalable
+                scaleGestureDetector =  new ScaleGestureDetector(getApplicationContext(),new MySimpleOnScaleGestureListener(i));
+                numberOfRadiators ++;
+                ConstraintChecker(numberOfBoilers,numberOfRadiators);
             } // onClick
         });
 
@@ -73,9 +92,26 @@ public class EditRoomActivity extends AppCompatActivity {
                 // Add this image to the relative border
                 editRoomRelativeLayout.addView(i);
                 i.setOnTouchListener(new ChoiceTouchListener());
+                // Make this image scalable
+                scaleGestureDetector =  new ScaleGestureDetector(getApplicationContext(),new MySimpleOnScaleGestureListener(i));
             } // onClick
         });
 
+        // Click on vertical line field
+        verticalLineButton = (LinearLayout) findViewById(R.id.verticalLineField);
+        verticalLineButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ImageView i = new ImageView(EditRoomActivity.this);
+                i.setImageResource(R.drawable.vertical_line);
+                i.setLayoutParams(new LinearLayout.LayoutParams(150, 150));
+                // Add this image to the relative border
+                editRoomRelativeLayout.addView(i);
+                i.setOnTouchListener(new ChoiceTouchListener());
+                // Make this image scalable
+                scaleGestureDetector =  new ScaleGestureDetector(getApplicationContext(),new MySimpleOnScaleGestureListener(i));
+            } // onClick
+        });
 
         rootLayout = (ViewGroup) findViewById(R.id.activity_edit_room);
         img = (ImageView) rootLayout.findViewById(R.id.imageView);
@@ -84,6 +120,42 @@ public class EditRoomActivity extends AppCompatActivity {
         img.setLayoutParams(layoutParams);
         img.setOnTouchListener(new ChoiceTouchListener());
     } // onCreate
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        scaleGestureDetector.onTouchEvent(event);
+//        return true;
+        return super.onTouchEvent(event);
+    } // onTouchEvent
+
+    private class MySimpleOnScaleGestureListener
+            extends ScaleGestureDetector.SimpleOnScaleGestureListener {
+        ImageView viewMyImage;
+        float factor;
+
+        public MySimpleOnScaleGestureListener(ImageView iv) {
+            super();
+            viewMyImage = iv;
+        } // MySimpleOnScaleGestureListener
+
+        @Override
+        public boolean onScaleBegin(ScaleGestureDetector detector) {
+            factor = 1.0f;
+            return true;
+            //return super.onScaleBegin(detector);
+        } // onScaleBegin
+
+        @Override
+        public boolean onScale(ScaleGestureDetector detector) {
+
+            float scaleFactor = detector.getScaleFactor() - 1;
+            factor += scaleFactor;
+            viewMyImage.setScaleX(factor);
+            viewMyImage.setScaleY(factor);
+            return true;
+            //return super.onScale(detector);
+        } // onScale
+    } // MySimpleOnScaleGestureListener
 
 
     // This method moves the image about
@@ -122,6 +194,12 @@ public class EditRoomActivity extends AppCompatActivity {
                         view.setLayoutParams(layoutParams);
                         return true;
                     }
+                    else if (lParams.leftMargin < 0 && lParams.topMargin < 0) {
+                        lParams.leftMargin = 0;
+                        lParams.topMargin = 0;
+                        view.setLayoutParams(layoutParams);
+                        return true;
+                    }
                     view.setLayoutParams(layoutParams);
                     break;
             } // switch
@@ -129,55 +207,13 @@ public class EditRoomActivity extends AppCompatActivity {
             return true;
         } // onTouch
     } // ChoiceTouchListener
+
+    private void ConstraintChecker(int numberOfBoilers, int numberOfRadiators){
+        if((numberOfBoilers>=1) && (numberOfRadiators>=1)){
+            circleImage.setImageResource(R.drawable.circle_green);
+        }
+        else{
+            circleImage.setImageResource(R.drawable.circle_red);
+        }
+    }
 }//EditRoomActivity
-
-
-//import android.view.ScaleGestureDetector;
-
-//Global variables
-//ImageView myImage;
-//    private ScaleGestureDetector scaleGestureDetector;
-
-
-//In onCreate{
-//        myImage = (ImageView)findViewById(R.id.imageView);
-//        scaleGestureDetector = new ScaleGestureDetector(
-//                this, new MySimpleOnScaleGestureListener(myImage));
-// }
-
-//    @Override
-//    public boolean onTouchEvent(MotionEvent event) {
-//        scaleGestureDetector.onTouchEvent(event);
-////        return true;
-//        return super.onTouchEvent(event);
-//    } // onTouchEvent
-//
-//
-//    private class MySimpleOnScaleGestureListener
-//            extends ScaleGestureDetector.SimpleOnScaleGestureListener {
-//        ImageView viewMyImage;
-//        float factor;
-//
-//        public MySimpleOnScaleGestureListener(ImageView iv) {
-//            super();
-//            viewMyImage = iv;
-//        } // MySimpleOnScaleGestureListener
-//
-//        @Override
-//        public boolean onScaleBegin(ScaleGestureDetector detector) {
-//            factor = 1.0f;
-//            return true;
-//            //return super.onScaleBegin(detector);
-//        } // onScaleBegin
-//
-//        @Override
-//        public boolean onScale(ScaleGestureDetector detector) {
-//
-//            float scaleFactor = detector.getScaleFactor() - 1;
-//            factor += scaleFactor;
-//            viewMyImage.setScaleX(factor);
-//            viewMyImage.setScaleY(factor);
-//            return true;
-//            //return super.onScale(detector);
-//        } // onScale
-//    } // MySimpleOnScaleGestureListener

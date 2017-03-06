@@ -105,5 +105,68 @@
             android:textColor="#FFFFFF" />
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/verticalLineField"
+        android:layout_width="160dp"
+        android:layout_height="80dp"
+        android:layout_below="@id/boilerField"
+        android:layout_marginLeft="10dp"
+
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/horizontalLineField"
+        android:background="@drawable/action_button"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/verticalLineImage"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/vertical_line" />
+
+        <TextView
+            android:id="@+id/verticalLineText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/horizontal_line"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/constraintCheckerField"
+        android:layout_width="160dp"
+        android:layout_height="80dp"
+        android:layout_below="@id/boilerField"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/verticalLineField"
+        android:background="@drawable/action_button"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/constraintCheckerImage"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/circle_red" />
+
+        <TextView
+            android:id="@+id/constraintCheckerText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/constraint_checker"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
 
 </RelativeLayout>

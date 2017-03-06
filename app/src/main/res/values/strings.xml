@@ -24,6 +24,10 @@
     <string name="boiler">Boiler</string>
     <string name="radiator">Radiator</string>
     <string name="horizontal_line">Horizontal Line</string>
+    <string name="vertical_line">Vertical Line</string>
+    <string name="constraint_checker">Constraint Checker</string>
+
+
 
 
 
