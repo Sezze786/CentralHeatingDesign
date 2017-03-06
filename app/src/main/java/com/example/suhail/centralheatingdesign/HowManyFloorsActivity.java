@@ -55,7 +55,7 @@ public class HowManyFloorsActivity extends AppCompatActivity implements AdapterV
 //        textView.setText(numberOfFloorsSpinner.getSelectedItem().toString());
         float weight = (float) 0.5;
 
-        // Delete all layouts except the Spinner and text box layout
+        // Delete all layouts except the Spinner and text box border
         removeDynamicLayouts();
 
         // How many floors do we want

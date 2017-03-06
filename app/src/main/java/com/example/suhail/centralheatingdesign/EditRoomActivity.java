@@ -1,3 +1,4 @@
+
 package com.example.suhail.centralheatingdesign;
 
 import android.content.pm.ActivityInfo;
@@ -11,8 +12,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
-public class EditRoomActivity extends AppCompatActivity {
 
+public class EditRoomActivity extends AppCompatActivity {
     private ImageView img;
     private ViewGroup rootLayout;
     private int _xDelta;
@@ -22,7 +23,6 @@ public class EditRoomActivity extends AppCompatActivity {
     private LinearLayout horizontalLineButton;
     private RelativeLayout editRoomRelativeLayout;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // Orientation landscape
@@ -30,6 +30,7 @@ public class EditRoomActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_room);
+
 
         editRoomRelativeLayout = (RelativeLayout) findViewById(R.id.editRoomRelativeLayout);
 
@@ -41,7 +42,7 @@ public class EditRoomActivity extends AppCompatActivity {
                 ImageView i = new ImageView(EditRoomActivity.this);
                 i.setImageResource(R.drawable.boiler);
                 i.setLayoutParams(new LinearLayout.LayoutParams(150, 150));
-                // Add this image to the relative layout
+                // Add this image to the relative border
                 editRoomRelativeLayout.addView(i);
                 i.setOnTouchListener(new ChoiceTouchListener());
             } // onClick
@@ -55,7 +56,7 @@ public class EditRoomActivity extends AppCompatActivity {
                 ImageView i = new ImageView(EditRoomActivity.this);
                 i.setImageResource(R.drawable.radiator);
                 i.setLayoutParams(new LinearLayout.LayoutParams(150, 150));
-                // Add this image to the relative layout
+                // Add this image to the relative border
                 editRoomRelativeLayout.addView(i);
                 i.setOnTouchListener(new ChoiceTouchListener());
             } // onClick
@@ -69,7 +70,7 @@ public class EditRoomActivity extends AppCompatActivity {
                 ImageView i = new ImageView(EditRoomActivity.this);
                 i.setImageResource(R.drawable.horizontal_line);
                 i.setLayoutParams(new LinearLayout.LayoutParams(150, 150));
-                // Add this image to the relative layout
+                // Add this image to the relative border
                 editRoomRelativeLayout.addView(i);
                 i.setOnTouchListener(new ChoiceTouchListener());
             } // onClick
@@ -110,13 +111,13 @@ public class EditRoomActivity extends AppCompatActivity {
                     layoutParams.leftMargin = X - _xDelta;
                     layoutParams.topMargin = Y - _yDelta;
                     // Set boundary for top margin
-                    if(lParams.topMargin < 0) {
+                    if (lParams.topMargin < 0) {
                         lParams.topMargin = 0;
                         view.setLayoutParams(layoutParams);
                         return true;
                     }
                     // Set boundary for left margin
-                    else if(lParams.leftMargin < 0) {
+                    else if (lParams.leftMargin < 0) {
                         lParams.leftMargin = 0;
                         view.setLayoutParams(layoutParams);
                         return true;
@@ -131,9 +132,52 @@ public class EditRoomActivity extends AppCompatActivity {
 }//EditRoomActivity
 
 
+//import android.view.ScaleGestureDetector;
+
+//Global variables
+//ImageView myImage;
+//    private ScaleGestureDetector scaleGestureDetector;
 
 
+//In onCreate{
+//        myImage = (ImageView)findViewById(R.id.imageView);
+//        scaleGestureDetector = new ScaleGestureDetector(
+//                this, new MySimpleOnScaleGestureListener(myImage));
+// }
 
-
-
-
+//    @Override
+//    public boolean onTouchEvent(MotionEvent event) {
+//        scaleGestureDetector.onTouchEvent(event);
+////        return true;
+//        return super.onTouchEvent(event);
+//    } // onTouchEvent
+//
+//
+//    private class MySimpleOnScaleGestureListener
+//            extends ScaleGestureDetector.SimpleOnScaleGestureListener {
+//        ImageView viewMyImage;
+//        float factor;
+//
+//        public MySimpleOnScaleGestureListener(ImageView iv) {
+//            super();
+//            viewMyImage = iv;
+//        } // MySimpleOnScaleGestureListener
+//
+//        @Override
+//        public boolean onScaleBegin(ScaleGestureDetector detector) {
+//            factor = 1.0f;
+//            return true;
+//            //return super.onScaleBegin(detector);
+//        } // onScaleBegin
+//
+//        @Override
+//        public boolean onScale(ScaleGestureDetector detector) {
+//
+//            float scaleFactor = detector.getScaleFactor() - 1;
+//            factor += scaleFactor;
+//            viewMyImage.setScaleX(factor);
+//            viewMyImage.setScaleY(factor);
+//            return true;
+//            //return super.onScale(detector);
+//        } // onScale
+//    } // MySimpleOnScaleGestureListener
