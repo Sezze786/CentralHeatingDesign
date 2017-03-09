@@ -1,13 +1,16 @@
 
 package com.example.suhail.centralheatingdesign;
 
+import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
 import android.view.View.OnTouchListener;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -28,6 +31,10 @@ public class EditRoomActivity extends AppCompatActivity {
     private LinearLayout radiatorButton;
     private LinearLayout horizontalLineButton;
     private LinearLayout verticalLineButton;
+    private LinearLayout topLeftLineButton;
+    private LinearLayout topRightLineButton;
+    private LinearLayout bottomRightLineButton;
+    private LinearLayout bottomLeftLineButton;
     private RelativeLayout editRoomRelativeLayout;
 
     ImageView circleImage;
@@ -40,6 +47,34 @@ public class EditRoomActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_room);
+
+        // Let 'tips' button open the tips dialogue
+        Button loadTipsDialogue = (Button) findViewById(R.id.tipsDialogue);
+        loadTipsDialogue.setOnClickListener(new View.OnClickListener() {
+
+            String tip1 = "Tip 1: Select the appliances you want in the room";
+            String tip2 = "Tip 2: Place them where you want them in the room";
+            String tip3 = "Tip 3: Join them up using the pipes available";
+            String tip4 = "Tip 4: If circle is red, it means something is wrong";
+            String tip5 = "Tip 5: If circle is green, everything seems right";
+            String tip6 = "Tip 6: Screenshot your room to your device";
+
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder dialog = new AlertDialog.Builder(EditRoomActivity.this);
+                dialog.setCancelable(false);
+                dialog.setTitle("Tips");
+                dialog.setMessage(tip1 +"\n"+ tip2 +"\n"+ tip3 +"\n"+ tip4 +"\n"+ tip5 +"\n"+ tip6);
+                dialog.setNeutralButton("Dismiss", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        //Action for "Delete".
+                    }
+                });
+                final AlertDialog alert = dialog.create();
+                alert.show();
+            }
+        }); //Tips onClick
 
         editRoomRelativeLayout = (RelativeLayout) findViewById(R.id.editRoomRelativeLayout);
         circleImage = (ImageView) findViewById(R.id.imageView);
@@ -60,8 +95,8 @@ public class EditRoomActivity extends AppCompatActivity {
                 scaleGestureDetector =  new ScaleGestureDetector(getApplicationContext(),new MySimpleOnScaleGestureListener(i));
                 numberOfBoilers ++;
                 ConstraintChecker(numberOfBoilers,numberOfRadiators);
-            } // onClick
-        });
+            }
+        }); //Boiler onClick
 
         // Click on radiator field
         radiatorButton = (LinearLayout) findViewById(R.id.radiatorField);
@@ -79,7 +114,7 @@ public class EditRoomActivity extends AppCompatActivity {
                 numberOfRadiators ++;
                 ConstraintChecker(numberOfBoilers,numberOfRadiators);
             } // onClick
-        });
+        }); //Radiator onClick
 
         // Click on horizontal line field
         horizontalLineButton = (LinearLayout) findViewById(R.id.horizontalLineField);
@@ -95,7 +130,7 @@ public class EditRoomActivity extends AppCompatActivity {
                 // Make this image scalable
                 scaleGestureDetector =  new ScaleGestureDetector(getApplicationContext(),new MySimpleOnScaleGestureListener(i));
             } // onClick
-        });
+        }); //Horizontal onClick
 
         // Click on vertical line field
         verticalLineButton = (LinearLayout) findViewById(R.id.verticalLineField);
@@ -111,7 +146,71 @@ public class EditRoomActivity extends AppCompatActivity {
                 // Make this image scalable
                 scaleGestureDetector =  new ScaleGestureDetector(getApplicationContext(),new MySimpleOnScaleGestureListener(i));
             } // onClick
-        });
+        }); //vertical line onClick
+
+        // Click on top left line field
+        topLeftLineButton = (LinearLayout) findViewById(R.id.topLeftLineField);
+        topLeftLineButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ImageView i = new ImageView(EditRoomActivity.this);
+                i.setImageResource(R.drawable.top_left);
+                i.setLayoutParams(new LinearLayout.LayoutParams(150, 150));
+                // Add this image to the relative border
+                editRoomRelativeLayout.addView(i);
+                i.setOnTouchListener(new ChoiceTouchListener());
+                // Make this image scalable
+                scaleGestureDetector =  new ScaleGestureDetector(getApplicationContext(),new MySimpleOnScaleGestureListener(i));
+            } // onClick
+        }); //top left onClick
+
+        // Click on top right line field
+        topRightLineButton = (LinearLayout) findViewById(R.id.topRightLineField);
+        topRightLineButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ImageView i = new ImageView(EditRoomActivity.this);
+                i.setImageResource(R.drawable.top_right);
+                i.setLayoutParams(new LinearLayout.LayoutParams(150, 150));
+                // Add this image to the relative border
+                editRoomRelativeLayout.addView(i);
+                i.setOnTouchListener(new ChoiceTouchListener());
+                // Make this image scalable
+                scaleGestureDetector =  new ScaleGestureDetector(getApplicationContext(),new MySimpleOnScaleGestureListener(i));
+            } // onClick
+        }); //top right onClick
+
+        // Click on bottom right line field
+        bottomRightLineButton = (LinearLayout) findViewById(R.id.bottomRightLineField);
+        bottomRightLineButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ImageView i = new ImageView(EditRoomActivity.this);
+                i.setImageResource(R.drawable.bottom_right);
+                i.setLayoutParams(new LinearLayout.LayoutParams(150, 150));
+                // Add this image to the relative border
+                editRoomRelativeLayout.addView(i);
+                i.setOnTouchListener(new ChoiceTouchListener());
+                // Make this image scalable
+                scaleGestureDetector =  new ScaleGestureDetector(getApplicationContext(),new MySimpleOnScaleGestureListener(i));
+            }
+        }); //bottom right onClick
+
+        // Click on bottom left line field
+        bottomLeftLineButton = (LinearLayout) findViewById(R.id.bottomLeftLineField);
+        bottomLeftLineButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ImageView i = new ImageView(EditRoomActivity.this);
+                i.setImageResource(R.drawable.bottom_left);
+                i.setLayoutParams(new LinearLayout.LayoutParams(150, 150));
+                // Add this image to the relative border
+                editRoomRelativeLayout.addView(i);
+                i.setOnTouchListener(new ChoiceTouchListener());
+                // Make this image scalable
+                scaleGestureDetector =  new ScaleGestureDetector(getApplicationContext(),new MySimpleOnScaleGestureListener(i));
+            } // onClick
+        });  //bottom left onClick
 
         rootLayout = (ViewGroup) findViewById(R.id.activity_edit_room);
         img = (ImageView) rootLayout.findViewById(R.id.imageView);
@@ -156,7 +255,6 @@ public class EditRoomActivity extends AppCompatActivity {
             //return super.onScale(detector);
         } // onScale
     } // MySimpleOnScaleGestureListener
-
 
     // This method moves the image about
     private final class ChoiceTouchListener implements OnTouchListener {
@@ -208,6 +306,8 @@ public class EditRoomActivity extends AppCompatActivity {
         } // onTouch
     } // ChoiceTouchListener
 
+    // Method to check whether the constraints have been met
+    // Changes Picture red/green according to conditions met
     private void ConstraintChecker(int numberOfBoilers, int numberOfRadiators){
         if((numberOfBoilers>=1) && (numberOfRadiators>=1)){
             circleImage.setImageResource(R.drawable.circle_green);

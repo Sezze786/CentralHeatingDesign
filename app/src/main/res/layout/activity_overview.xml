@@ -11,45 +11,62 @@
     tools:context="com.example.suhail.centralheatingdesign.OverviewActivity">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+        android:orientation="vertical">
 
         <TextView
-            android:text="@string/activity_overview_title"
+            android:id="@+id/overviewTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/overviewTitle"
+            android:text="@string/activity_overview_title"
+            android:textAlignment="center"
             android:textSize="18sp"
-            android:textAlignment="center" />
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/overviewDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/overview_activity_description" />
+
+        <TextView
+            android:id="@+id/overviewPlease"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/overview_activity_please"
+            android:textStyle="normal|bold"
+            android:gravity="center" />
+
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:gravity="bottom|center">
+        android:gravity="bottom|center"
+        android:orientation="horizontal">
 
         <Button
-        android:id="@+id/howManyFloorsButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:text="@string/back_button"
-        android:layout_weight="1" />
+            android:id="@+id/howManyFloorsButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1"
+            android:text="@string/back_button" />
 
         <Button
-            android:text="@string/edit_room_button"
             android:id="@+id/editRoomButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:text="@string/edit_room_button" />
     </LinearLayout>
-
 
 
 </RelativeLayout>

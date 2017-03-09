@@ -5,12 +5,19 @@
     <string name="activity_how_many_floors_title">How Many Floors?</string>
     <string name="activity_overview_title">Overview</string>
 
-    <string name="main_activity_description">Description of App</string>
+    <string name="main_activity_description">This app helps you design a central heating system and
+        help aid the heating designer in their job.</string>
+    <string name="how_many_floors_activity_description">Please select how many floors this building
+        has</string>
+    <string name="overview_activity_description">Get info from previous page and showcase here.</string>
+    <string name="overview_activity_please">PLEASE READ TIPS BEFORE STARTING TO EDIT ROOM!</string>
+
 
     <string name="begin_button">Begin</string>
     <string name="back_button">Back</string>
     <string name="next_button">Next</string>
     <string name="edit_room_button">Edit Room</string>
+    <string name="tips_button">Tips</string>
 
     <string name="how_many_floors_prompt">Pick How Many Floors?</string>
     <string-array name="floors_arrays">
@@ -23,14 +30,5 @@
     <string name="expand_me">Slide Up To Expand</string>
     <string name="boiler">Boiler</string>
     <string name="radiator">Radiator</string>
-    <string name="horizontal_line">Horizontal Line</string>
-    <string name="vertical_line">Vertical Line</string>
     <string name="constraint_checker">Constraint Checker</string>
-
-
-
-
-
-
-
 </resources>

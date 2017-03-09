@@ -2,8 +2,10 @@ package com.example.suhail.centralheatingdesign;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -68,7 +70,10 @@ public class HowManyFloorsActivity extends AppCompatActivity implements AdapterV
             ll.setId(i);
             linearLayout.addView(ll);
             // Add Floor i text
+            // Set to bold and appropriate size
             TextView tx1 = new TextView(this);
+            tx1.setTextSize(TypedValue.COMPLEX_UNIT_DIP,16);
+            tx1.setTypeface(null, Typeface.BOLD);
             tx1.setText("Floor " + Integer.toString(i));
             ll.addView(tx1);
             // Add 'add a room' button

@@ -9,15 +9,17 @@
     app:behavior_peekHeight="80dp"
     app:layout_behavior="@string/bottom_sheet_behavior">
 
-
+    <!--Bottom Sheet Title-->
     <TextView
         android:id="@+id/bottomSheetHeading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/expand_me"
-        android:textAppearance="@android:style/TextAppearance.Large" />
+        android:textAppearance="@android:style/TextAppearance.Large"
+        android:textStyle="bold"/>
 
+    <!--Boiler Field-->
     <LinearLayout
         android:id="@+id/boilerField"
         android:layout_width="110dp"
@@ -46,6 +48,7 @@
             android:textColor="#FFFFFF" />
     </LinearLayout>
 
+    <!--Radiator Field-->
     <LinearLayout
         android:id="@+id/radiatorField"
         android:layout_width="140dp"
@@ -76,10 +79,11 @@
             android:textColor="#FFFFFF" />
     </LinearLayout>
 
+    <!--Horizontal Line Field-->
     <LinearLayout
         android:id="@+id/horizontalLineField"
-        android:layout_width="160dp"
-        android:layout_height="80dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_below="@id/boilerField"
         android:layout_marginTop="5dp"
         android:background="@drawable/action_button"
@@ -89,29 +93,29 @@
 
         <ImageView
             android:id="@+id/horizontalLineImage"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_weight="1"
             app:srcCompat="@drawable/horizontal_line" />
 
-        <TextView
-            android:id="@+id/horizontalLineText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/horizontal_line"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#FFFFFF" />
+        <!--<TextView-->
+        <!--android:id="@+id/horizontalLineText"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="1"-->
+        <!--android:gravity="center"-->
+        <!--android:text="@string/horizontal_line"-->
+        <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
+        <!--android:textColor="#FFFFFF" />-->
     </LinearLayout>
 
+    <!--Vertical Line Field-->
     <LinearLayout
         android:id="@+id/verticalLineField"
-        android:layout_width="160dp"
-        android:layout_height="80dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_below="@id/boilerField"
         android:layout_marginLeft="10dp"
-
         android:layout_marginTop="5dp"
         android:layout_toRightOf="@id/horizontalLineField"
         android:background="@drawable/action_button"
@@ -121,26 +125,17 @@
 
         <ImageView
             android:id="@+id/verticalLineImage"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_weight="1"
             app:srcCompat="@drawable/vertical_line" />
-
-        <TextView
-            android:id="@+id/verticalLineText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/horizontal_line"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#FFFFFF" />
     </LinearLayout>
 
+    <!--Top Left Line Field-->
     <LinearLayout
-        android:id="@+id/constraintCheckerField"
-        android:layout_width="160dp"
-        android:layout_height="80dp"
+        android:id="@+id/topLeftLineField"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_below="@id/boilerField"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="5dp"
@@ -151,22 +146,97 @@
         android:padding="5dp">
 
         <ImageView
-            android:id="@+id/constraintCheckerImage"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:id="@+id/topLeftLineImage"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/circle_red" />
-
-        <TextView
-            android:id="@+id/constraintCheckerText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/constraint_checker"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#FFFFFF" />
+            app:srcCompat="@drawable/top_left" />
     </LinearLayout>
 
+    <!--Top Right Line Field-->
+    <LinearLayout
+        android:id="@+id/topRightLineField"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/boilerField"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/topLeftLineField"
+        android:background="@drawable/action_button"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="5dp">
 
+        <ImageView
+            android:id="@+id/topRightLineImage"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/top_right" />
+    </LinearLayout>
+
+    <!--Bottom Right Line Field-->
+    <LinearLayout
+        android:id="@+id/bottomRightLineField"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/boilerField"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/topRightLineField"
+        android:background="@drawable/action_button"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/bottomRightLineImage"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/bottom_right" />
+    </LinearLayout>
+
+    <!--Bottom Left Line Field-->
+    <LinearLayout
+        android:id="@+id/bottomLeftLineField"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/boilerField"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/bottomRightLineField"
+        android:background="@drawable/action_button"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/bottomLeftLineImage"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/bottom_left" />
+    </LinearLayout>
+
+    <!--Tips Field-->
+    <LinearLayout
+        android:id="@+id/tipsField"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/boilerField"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/bottomLeftLineField"
+        android:background="@drawable/action_button"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <Button
+            android:id="@+id/tipsDialogue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tips_button" />
+    </LinearLayout>
 </RelativeLayout>

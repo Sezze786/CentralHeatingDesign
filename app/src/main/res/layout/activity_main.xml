@@ -12,47 +12,49 @@
     tools:context="com.example.suhail.centralheatingdesign.MainActivity">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:orientation="vertical"
         android:paddingBottom="10dp">
 
 
         <TextView
-            android:text="@string/activity_main_title"
+            android:id="@+id/homePageTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/homePageTitle"
+            android:text="@string/activity_main_title"
+            android:textAlignment="center"
             android:textSize="18sp"
-            android:textAlignment="center" />
+            android:textStyle="bold"/>
 
         <TextView
-            android:text="@string/main_activity_description"
+            android:id="@+id/homePageSnippet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/homePageSnippet"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
             android:onClick="beginning"
-            android:gravity="center" />
+            android:text="@string/main_activity_description" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_weight="1"
         android:gravity="bottom|center"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+        android:orientation="horizontal">
 
         <Button
-            android:text="@string/begin_button"
+            android:id="@+id/beginButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/beginButton"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:text="@string/begin_button" />
     </LinearLayout>
 
 </RelativeLayout>

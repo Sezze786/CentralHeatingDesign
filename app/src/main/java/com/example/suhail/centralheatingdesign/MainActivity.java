@@ -20,8 +20,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(MainActivity.this, HowManyFloorsActivity.class);
-                Intent intent = new Intent(MainActivity.this, EditRoomActivity.class);
+                Intent intent = new Intent(MainActivity.this, HowManyFloorsActivity.class);
+//                Intent intent = new Intent(MainActivity.this, EditRoomActivity.class);
                 startActivity(intent);
             }
         });
