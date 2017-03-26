@@ -38,6 +38,13 @@
             android:onClick="beginning"
             android:text="@string/main_activity_description" />
 
+        <Button
+            android:id="@+id/signOutButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Sign Out" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -48,13 +55,6 @@
         android:layout_weight="1"
         android:gravity="bottom|center"
         android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/signOutButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Sign Out" />
 
         <Button
             android:id="@+id/beginButton"
